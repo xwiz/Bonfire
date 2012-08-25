@@ -90,7 +90,7 @@
  *
  */
 	$application_folder = ".";
-	$bf_app_folder		= "../bonfire/application";
+	$bf_app_folder		= "../application";
 
 /*
  * --------------------------------------------------------------------
@@ -189,7 +189,7 @@
 	define('SYSDIR', trim(strrchr(trim(BASEPATH, '/'), '/'), '/'));
 
 	// Bonfire application folder
-	define('BFPATH', str_replace('\\', '/', $bf_app_folder));
+	define('BFPATH', str_replace('\\', '/', $bf_app_folder).'/');
 
 	// The path to the "application" folder
 	if (is_dir($application_folder))

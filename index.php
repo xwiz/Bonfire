@@ -1,7 +1,7 @@
 <?php
 
 // Check if the install folder exists - if so then show the installer app
-if (is_dir(dirname(__FILE__).'/install') == true)
+if (is_dir(dirname(__FILE__).'/install') !== true)
 {
 	header('Location: install');
 	exit;
@@ -95,7 +95,7 @@ if (is_dir(dirname(__FILE__).'/install') == true)
  * NO TRAILING SLASH!
  *
  */
-	$application_folder = "bonfire/application";
+	$application_folder = "application";
 
 /*
  *---------------------------------------------------------------

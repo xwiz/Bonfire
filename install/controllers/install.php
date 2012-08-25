@@ -67,16 +67,15 @@ class Install extends CI_Controller {
 		sure they can be written to.
 	*/
 	private $writeable_folders = array(
-		'/bonfire/application/cache',
-		'/bonfire/application/logs',
-		'/bonfire/application/config',
-		'/bonfire/application/config/development',
-		'/bonfire/application/config/testing',
-		'/bonfire/application/config/production',
-		'/bonfire/application/archives',
-		'/bonfire/application/archives/config',
-		'/bonfire/application/db/backups',
-		'/bonfire/application/db/migrations',
+		'/application/cache',
+		'/application/logs',
+		'/application/config',
+		'/application/config/development',
+		'/application/config/testing',
+		'/application/config/production',
+		'/application/archives',
+		'/application/archives/config',
+		'/application/db/backups',
 		'/assets/cache'
 	);
 
@@ -86,7 +85,7 @@ class Install extends CI_Controller {
 		installation.
 	*/
 	private $reverse_writeable_folders = array(
-		'/bonfire/application/config',
+		'/application/config',
 	);
 
 	/*
@@ -95,8 +94,8 @@ class Install extends CI_Controller {
 		sure they can be written to.
 	*/
 	private $writeable_files = array(
-		'/bonfire/application/config/application.php',
-		'/bonfire/application/config/database.php',
+		'/application/config/application.php',
+		'/application/config/database.php',
 	);
 
 	private $vdata = array();
@@ -294,12 +293,12 @@ class Install extends CI_Controller {
 	{	
 		// Does the database config exist? 
 		// If not, then we definitely haven't installed yet.
-		if (!file_exists('../bonfire/application/config/development/database.php'))
+		if (!file_exists('../application/config/development/database.php'))
 		{
 			return false;
 		}
 		
-		require('../bonfire/application/config/development/database.php');
+		require('../application/config/development/database.php');
 		
 		// If the $db['default'] doesn't exist then we can't
 		// load our database.

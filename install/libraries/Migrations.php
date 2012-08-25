@@ -109,6 +109,7 @@ class Migrations {
 
 	private $migrations_enabled = FALSE;
 	private $migrations_path = ".";
+	private $core_migrations_path = ".";
 	private $verbose = FALSE;
 
 	public $error = "";
@@ -122,7 +123,8 @@ class Migrations {
 		$this->_ci->config->load('migrations');
 
 		$this->migrations_enabled = $this->_ci->config->item('migrations_enabled');
-		$this->migrations_path = realpath($this->_ci->config->item('migrations_path'));
+		$this->migrations_path = realpath($this->_ci->config->item('migrations_path')).'/';
+		$this->core_migrations_path = realpath($this->_ci->config->item('core_migrations_path')).'/';
 
 		// Idiot check
 		$this->migrations_enabled AND $this->migrations_path OR show_error('Migrations has been loaded but is disabled or set up incorrectly.');
@@ -185,7 +187,7 @@ class Migrations {
 		switch ($type)
 		{
 			case '':
-				$migrations_path = $this->migrations_path .'core/';
+				$migrations_path = $this->core_migrations_path;
 				break;
 			case 'app_':
 				$migrations_path = $this->migrations_path;
@@ -249,7 +251,7 @@ class Migrations {
 		switch ($type)
 		{
 			case '':
-				$migrations_path = $this->migrations_path .'core/';
+				$migrations_path = $this->core_migrations_path;
 				break;
 			case 'app_':
 				$migrations_path = $this->migrations_path;
@@ -473,7 +475,7 @@ class Migrations {
 		switch ($type)
 		{
 			case '':
-				$migrations_path = $this->migrations_path .'core/';
+				$migrations_path = $this->core_migrations_path;
 				break;
 			case 'app_':
 				$migrations_path = $this->migrations_path;
@@ -509,7 +511,7 @@ class Migrations {
 		switch ($type)
 		{
 			case '':
-				$migrations_path = $this->migrations_path .'core/';
+				$migrations_path = $this->core_migrations_path;
 				break;
 			case 'app_':
 				$migrations_path = $this->migrations_path;
