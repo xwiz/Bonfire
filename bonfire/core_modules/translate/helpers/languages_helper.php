@@ -40,7 +40,7 @@ if (!function_exists('list_languages'))
 	 */
 	function list_languages()
 	{
-		$folder = APPPATH .'language/';
+		$folder = APPPATH .'third_party/bonfire/language/';
 
 		$ci =& get_instance();
 		$ci->load->helper('directory');
@@ -74,7 +74,7 @@ if (!function_exists('list_lang_files'))
 		$lang_files = array();
 
 		// Base language files.
-		$lang_files['core'] = find_lang_files(APPPATH .'language/'. $language .'/');
+		$lang_files['core'] = find_lang_files(APPPATH .'third_party/bonfire/language/'. $language .'/');
 
 		// Module lang files
 		$modules = module_list();
@@ -91,12 +91,12 @@ if (!function_exists('list_lang_files'))
 
 				if (in_array($module, $custom_modules))
 				{
-					$files = find_lang_files(realpath(APPPATH .'../modules/'. $path) .'/');
+					$files = find_lang_files(realpath(APPPATH .'modules/'. $path) .'/');
 					$type = 'custom';
 				}
 				else
 				{
-					$files = find_lang_files(APPPATH .'core_modules/'. $path .'/');
+					$files = find_lang_files(FCPATH .'bonfire/core_modules/'. $path .'/');
 				}
 
 				foreach ($files as $file)
@@ -165,7 +165,7 @@ if (!function_exists('load_lang_file'))
 		// Is it the application_lang file?
 		if ($filename == 'application_lang.php' || $filename == 'datatable_lang.php')
 		{
-			$path = APPPATH .'language/'. $language .'/'. $filename;
+			$path = APPPATH .'third_party/bonfire/language/'. $language .'/'. $filename;
 		}
 		// Look in modules
 		else
@@ -215,7 +215,7 @@ if (!function_exists('save_lang_file'))
 		// Is it the application_lang file?
 		if ($filename == 'application_lang.php' || $filename == 'datatable_lang.php')
 		{
-			$path = APPPATH .'language/'. $language .'/'. $filename;
+			$path = APPPATH .'third_party/bonfire/language/'. $language .'/'. $filename;
 		}
 		// Look in core_modules
 		else

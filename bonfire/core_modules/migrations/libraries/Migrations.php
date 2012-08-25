@@ -117,6 +117,15 @@ class Migrations
 	private $migrations_enabled = FALSE;
 
 	/**
+	 * Path to the Bonfire Core migrations files
+	 *
+	 * @access private
+	 *
+	 * @var string
+	 */
+	private $core_migrations_path = ".";
+
+	/**
 	 * Path to the migrations files
 	 *
 	 * @access private
@@ -157,7 +166,8 @@ class Migrations
 		$this->_ci->config->load('migrations/migrations');
 
 		$this->migrations_enabled = $this->_ci->config->item('migrations_enabled');
-		$this->migrations_path = realpath($this->_ci->config->item('migrations_path'));
+		$this->core_migrations_path = realpath($this->_ci->config->item('core_migrations_path')).'/';
+		$this->migrations_path = realpath($this->_ci->config->item('migrations_path')).'/';
 
 		// Idiot check
 		$this->migrations_enabled AND $this->migrations_path OR show_error('Migrations has been loaded but is disabled or set up incorrectly.');
@@ -224,7 +234,7 @@ class Migrations
 	 */
 	public function install($type='')
 	{
-		$migrations_path = $type == 'app_' ? $this->migrations_path : $this->migrations_path .'core/';
+		$migrations_path = $type == 'app_' ? $this->migrations_path : $this->core_migrations_path;
 
 		// Load all *_*.php files in the migrations path
 		$files = glob($migrations_path.'*_*'.EXT);
@@ -280,7 +290,7 @@ class Migrations
 		switch ($type)
 		{
 			case '':
-				$migrations_path = $this->migrations_path .'core/';
+				$migrations_path = $this->core_migrations_path;
 				break;
 			case 'app_':
 				$migrations_path = $this->migrations_path;
@@ -529,7 +539,7 @@ class Migrations
 		switch ($type)
 		{
 			case '':
-				$migrations_path = $this->migrations_path .'core/';
+				$migrations_path = $this->core_migrations_path;
 				break;
 			case 'app_':
 				$migrations_path = $this->migrations_path;
@@ -561,7 +571,7 @@ class Migrations
 		switch ($type)
 		{
 			case '':
-				$migrations_path = $this->migrations_path .'core/';
+				$migrations_path = $this->core_migrations_path;
 				break;
 			case 'app_':
 				$migrations_path = $this->migrations_path;
