@@ -36,7 +36,7 @@
 |  $autoload['packages'] = array(APPPATH.'third_party', '/usr/local/shared');
 |
 */
-$autoload['packages'] = array(realpath(APPPATH.'../bonfire/core'));
+$autoload['packages'] = array(APPPATH.'third_party', realpath(APPPATH.'../bonfire/core'));
 
 
 /*
