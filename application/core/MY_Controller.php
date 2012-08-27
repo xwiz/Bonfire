@@ -72,7 +72,7 @@ class Base_Controller extends MX_Controller
 
 		parent::__construct();
 
-		$this->load->add_package_path(APPPATH.'third_party/bonfire/');
+		$this->load->add_package_path(APPPATH.'../bonfire/core/');
 
 		// Load Activity Model Since it's used everywhere.
 		$this->load->model('activities/Activity_model', 'activity_model');
