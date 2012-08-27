@@ -2,7 +2,7 @@
 
 /* define the module locations and offset */
 $config['modules_locations'] = array(
-	FCPATH .'application/modules/' => '../modules/',
+	APPPATH .'modules/' => '../modules/',
 	FCPATH .'bonfire/core_modules/' => '../../bonfire/core_modules/'
 );
 
