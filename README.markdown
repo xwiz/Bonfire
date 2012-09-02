@@ -46,3 +46,4 @@ The Bonfire Team is made up from developers around the world interested in makin
 - [Lonnie Ezell](http://lonnieezell.com) - Lead Developer
 - [Sean Downey](https://github.com/seandowney)
 - [Shawn Crigger](https://github.com/svizion)
+- [Alan Jenkins](https://github.com/sourcejedi)
